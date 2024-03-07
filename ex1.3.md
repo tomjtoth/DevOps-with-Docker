@@ -16,11 +16,11 @@ ubuntu: Pulling from devopsdockeruh/simple-web-service
 Digest: sha256:d44e1dce398732e18c7c2bad9416a072f719af33498302b02929d4c112e88d2a
 Status: Downloaded newer image for devopsdockeruh/simple-web-service:ubuntu
 4c95f534bfbd7fd828c3ce1dbaa14899a494ac4ce8e020146541870389004578
-[test@T14 ~]$ docker ps
+$ docker ps
 CONTAINER ID   IMAGE                                      COMMAND                  CREATED          STATUS          PORTS     NAMES
 4c95f534bfbd   devopsdockeruh/simple-web-service:ubuntu   "/usr/src/app/server"    7 seconds ago    Up 6 seconds              asdf
 dc8b0963c88e   ubuntu                                     "sh -c 'while true; …"   13 minutes ago   Up 13 minutes             looper-it
-[test@T14 ~]$ docker attach asdf
+$ docker attach asdf
 Wrote text to /usr/src/app/text.log
 Wrote text to /usr/src/app/text.log
 Wrote text to /usr/src/app/text.log
@@ -30,7 +30,7 @@ Wrote text to /usr/src/app/text.log
 Wrote text to /usr/src/app/text.log
 Wrote text to /usr/src/app/text.log
 read escape sequence
-[test@T14 ~]$ docker exec asdf tail -f text.log
+$ docker exec asdf tail -f text.log
 2024-03-07 07:14:31 +0000 UTC
 Secret message is: 'You can find the source code here: https://github.com/docker-hy'
 2024-03-07 07:14:33 +0000 UTC
