@@ -1,0 +1,12 @@
+We have containers and an image that are no longer in use and are taking up space. Running docker ps -as and docker image ls will confirm this.
+
+Clean the Docker daemon by removing all images and containers.
+
+Submit the output for `docker ps -a` and `docker image ls`
+
+```sh
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+$ docker image ls
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+```
