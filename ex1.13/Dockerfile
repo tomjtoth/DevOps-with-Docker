@@ -4,6 +4,9 @@ WORKDIR /usr/src/app/
 
 COPY . .
 
+# this is added in ex1.14
+ENV REQUEST_ORIGIN=http://localhost:5000
+
 RUN go build
 
 # running tests
