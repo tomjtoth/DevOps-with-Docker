@@ -55,4 +55,4 @@ Secret message is: 'You can find the source code here: https://github.com/docker
 ^C
 ```
 
-The secret message is `You can find the source code here: https://github.com/docker-hy`
+The secret message is `You can find the source code here: https://github.com/docker-hy`.
