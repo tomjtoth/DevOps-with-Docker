@@ -43,5 +43,5 @@ $
     - TLS was previously deployed
     - the final command was  `docker run -it -p 55599:55599 -e PORT=55599 -e HOST=0.0.0.0 -e TLS_CERT=/fullchain.pem -e TLS_KEY=/privkey.pem -v /etc/letsencrypt/live/oracle.ttj.hu/fullchain.pem:/fullchain.pem -v /etc/letsencrypt/live/oracle.ttj.hu/privkey.pem:/privkey.pem --name veripalvelu --restart always --stop-timeout 3600 tomjtoth/veripalvelu:aarch64`
         - the `--stop-timeout 3600` is a precaution as the project is still using the development server which seems to have issues sometimes with TLS
-- the dockerized version should be available [here](https://oracle.ttj.hu:55599)
+- the dockerized version should be available [here](https://apps.ttj.hu/veripalvelu)
     - I dare you to login with a wrong `user:pass` :)
