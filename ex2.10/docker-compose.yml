@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: node:16
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost/api/
+    command: |
+      sh -c "
+      npm install;
+      npm run build;
+      npm install -g serve;
+      serve -s -l 5000 build
+      "
+    working_dir: /usr/src/app/
+    volumes:
+      - ./example-frontend:/usr/src/app/
+    # networks:
+    #   - inner
+    # ports:
+    #   - 5000:5000
+
+  backend:
+    image: golang:1.16
+    environment:
+      - REQUEST_ORIGIN=http://localhost
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=db
+    command: |
+      sh -c "
+        go build;
+
+        # running tests
+        go test ./...;
+        ./server
+      "
+    working_dir: /usr/src/app/
+    volumes:
+      - ./example-backend:/usr/src/app/
+    # networks:
+    #   - inner
+    # ports:
+    #   - 8080:8080
+
+  redis:
+    image: redis
+    container_name: redis
+    # networks:
+    #   - inner
+
+  postgres:
+    image: postgres:16.2-alpine
+    container_name: db
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./ex2.7+gp_data:/var/lib/postgresql/data
+    # networks:
+    #   - inner
+
+  nginx:
+    image: nginx:1.25-alpine
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 80:80
+#     networks:
+#       - default
+#       - inner
+
+# networks:
+#   inner:
+#     external: false
+#     name: inner
