@@ -17,3 +17,5 @@ services:
     container_name: watchtower
     restart: unless-stopped
 ```
+
+Pushing changes reflected within a few minutes by refreshing the browser.
