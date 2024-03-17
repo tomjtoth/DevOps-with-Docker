@@ -39,6 +39,9 @@ EX33_WORKDIR=.ex3.3-workdir
 git clone https://github.com/$GH_USER/$GH_REPO $EX33_WORKDIR
 cd "$EX33_WORKDIR"
 
+# PID #1 should be the init process AFAIK in linux, if not, we're running in Docker ;)
+[ "$(cat /proc/1/comm)" == "ex3.3.sh" ] && docker login -u ${DOCKER_USER} -p ${DOCKER_PWD}
+
 docker build . -t $DH_DEST \
     && docker push $DH_DEST \
     && echo "build succeeded, image pushed" \
