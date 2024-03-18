@@ -1,7 +1,7 @@
 before ex3.6
 
 ```sh
-[test@T14 ~]$ docker image ls
+$ docker image ls
 REPOSITORY                    TAG           IMAGE ID       CREATED         SIZE
 devops-with-docker-frontend   latest        b0c771cb18cb   9 minutes ago   1.27GB
 devops-with-docker-backend    latest        73e8bded01a8   9 minutes ago   1.07GB
