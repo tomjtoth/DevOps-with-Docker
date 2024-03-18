@@ -1,4 +1,4 @@
-FROM node:16-alpine3.18
+FROM node:16-alpine3.18 AS builder
 
 WORKDIR /usr/src/app/
 
@@ -14,11 +14,19 @@ RUN \
     apk del git &&\
     npm install &&\
     npm run build &&\
-    npm install -g serve &&\
-    adduser --no-create-home --disabled-password --gecos "" matti
+    npm install -g serve
+
+
+FROM node:16-alpine3.18
+
+WORKDIR /usr/src/app/
+
+COPY --from=builder /usr/src/app/build /usr/local/bin/serve $WORKDIR
+
+RUN adduser --no-create-home --disabled-password --gecos "" matti
 
 USER matti
 
-CMD ["serve", "-s", "-l", "5000", "build"]
+CMD ["./serve", "-s", "-l", "5000", "build"]
 
 EXPOSE 5000
