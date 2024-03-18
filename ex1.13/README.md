@@ -8,6 +8,8 @@ Submit the Dockerfile and the command used.
 
 Steps I took:
 
+- copied over [material-applications/example-backend/](https://github.com/docker-hy/material-applications/tree/main/example-backend) to this dir
+    - added it to .gitignore
 - created the Dockerfile
 - `docker build . -t ex1.13`
 - `docker run -it -p 127.0.0.1:8080:8080 ex1.13`

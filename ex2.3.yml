@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: ex1.12
+    ports:
+      - 127.0.0.1:5000:5000
+
+  backend:
+    build: ex1.13
+    ports:
+      - 127.0.0.1:8080:8080
