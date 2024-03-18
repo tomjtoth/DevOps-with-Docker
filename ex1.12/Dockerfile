@@ -20,8 +20,8 @@ RUN npm run build
 RUN npm install -g serve
 
 # added in ex3.5
-# RUN useradd matti
-# USER matti
+RUN useradd matti
+USER matti
 
 CMD ["serve", "-s", "-l", "5000", "build"]
 

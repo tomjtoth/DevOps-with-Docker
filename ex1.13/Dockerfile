@@ -18,8 +18,8 @@ RUN go build
 RUN go test ./...
 
 # added in ex3.5
-# RUN useradd matti
-# USER matti
+RUN useradd matti
+USER matti
 
 CMD ["./server"]
 
