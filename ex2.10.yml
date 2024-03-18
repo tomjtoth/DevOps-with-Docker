@@ -2,9 +2,10 @@ version: "3.8"
 
 services:
   frontend:
-    build: ex1.12
-    environment:
-      - REACT_APP_BACKEND_URL=http://localhost/api
+    build:
+      context: ex1.12
+      args:
+        - BACKEND_URL=http://localhost/api
 
   backend:
     build: ex1.13

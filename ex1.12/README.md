@@ -10,8 +10,6 @@ Submit the Dockerfile.
 
 Steps I took:
 
-- copied over [material-applications/example-frontend/](https://github.com/docker-hy/material-applications/tree/main/example-frontend) to this dir, as docker refuses to follow symlinks
-    - added it to .gitignore
 - created the Dockerfile
 - `docker build . -t ex1.12`
 - `docker run -it -p 127.0.0.1:5000:5000 ex1.12`

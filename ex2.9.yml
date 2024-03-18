@@ -5,8 +5,6 @@ services:
     build: ex1.12
     ports:
       - 127.0.0.1:5000:5000
-    environment:
-      - REACT_APP_BACKEND_URL=http://localhost/api
 
   backend:
     build: ex1.13
