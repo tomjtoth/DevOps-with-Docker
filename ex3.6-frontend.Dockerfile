@@ -11,22 +11,10 @@ RUN \
     git -C tmp_repo checkout f5d98f5060305d5369c90f11277d7edb2af88d63 &&\
     mv tmp_repo/example-frontend/* . &&\
     rm -rf tmp_repo &&\
-    apk del git &&\
     npm install &&\
-    npm run build &&\
-    npm install -g serve
+    npm run build
 
 
-FROM node:16-alpine3.18
+FROM nginx:1.25-alpine
 
-WORKDIR /usr/src/app/
-
-COPY --from=builder /usr/src/app/build /usr/local/bin/serve $WORKDIR
-
-RUN adduser --no-create-home --disabled-password --gecos "" matti
-
-USER matti
-
-CMD ["./serve", "-s", "-l", "5000", "build"]
-
-EXPOSE 5000
+COPY --from=builder /usr/src/app/build /usr/share/nginx/html

@@ -1,4 +1,4 @@
-FROM golang:1.22-alpine
+FROM golang:1.22-alpine AS builder
 
 WORKDIR /usr/src/app/
 
@@ -12,6 +12,13 @@ RUN \
     go build &&\
     go test ./... &&\
     adduser --no-create-home --disabled-password --gecos "" matti
+
+FROM scratch
+
+WORKDIR /usr/src/app/
+
+COPY --from=builder /usr/src/app/server ./
+COPY --from=builder /etc/passwd /etc/passwd
 
 ENV REQUEST_ORIGIN=http://localhost:5000
 
