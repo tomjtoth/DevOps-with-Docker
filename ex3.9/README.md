@@ -1,5 +1,3 @@
-Changes can be seen [here](https://github.com/tomjtoth/DevOps-with-Docker/commit/61542bd5c59c55098d0d142e572baaa6b2e1a69d).
-
 Image sizes reduced to 43.7 + 19.1 MB.
 
 ```sh
